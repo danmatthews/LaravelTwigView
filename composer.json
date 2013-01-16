@@ -1,0 +1,25 @@
+{
+    "name": "danmatthews/laravel-twigview",
+    "description": "Integrates the twig view engine seamlessly with Laravel 4",
+    "authors": [
+        {
+            "name": "Dan Matthews",
+            "email": "dan@danmatthews.me"
+        }
+    ],
+    "license": "BSD-2-Clause",
+    "require": {
+        "php": ">=5.3.0",
+        "illuminate/support": "4.0.x",
+        "twig/twig": "1.*"
+    },
+    "autoload": {
+        "classmap": [
+            "src/migrations"
+        ],
+        "psr-0": {
+            "Danmatthews\\LaravelTwigview": "src/"
+        }
+    },
+    "minimum-stability": "dev"
+}
