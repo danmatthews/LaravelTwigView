@@ -1,5 +1,5 @@
 {
-    "name": "danmatthews/laravel-twigview",
+    "name": "danmatthews/laraveltwigview",
     "description": "Integrates the twig view engine seamlessly with Laravel 4",
     "authors": [
         {
