@@ -19,8 +19,11 @@ class LaravelTwigViewEngine implements \Illuminate\View\Engines\EngineInterface 
 		// Load an environment object for this loader.
 		$twig = new Twig_Environment($loader);
 
-		// Add the url() function as the best method you can.
+		// Add the url() function as the base method.
 		$twig->addFunction(new Twig_SimpleFunction('url', 'URL::to'));
+
+		// Add the asset() function for templates.
+		$twig->addFunction(new Twig_SimpleFunction('asset', 'URL::asset'));
 
 		// Render and return the file.
 		return $twig->render(file_get_contents($path), $data);
