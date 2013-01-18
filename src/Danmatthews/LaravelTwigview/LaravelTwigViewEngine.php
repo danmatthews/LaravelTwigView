@@ -19,6 +19,7 @@ class LaravelTwigViewEngine implements \Illuminate\View\Engines\EngineInterface 
 		// Load an environment object for this loader.
 		$twig = new Twig_Environment($loader, array(
 		   'cache' => base_path().'/app/storage/views',
+		   'autoescape' => false,
 	    ));
 
 		// Add the url() function as the base method.
