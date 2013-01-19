@@ -19,9 +19,9 @@ class LaravelTwigviewServiceProvider extends ServiceProvider {
 	public function boot()
 	{
 		$this->package('danmatthews/laravel-twigview');
-		$this->app['view']->addExtension('twig', 'LaravelTwigViewEngine', function()
+		$this->app['view']->addExtension('twig', 'twig', function()
 		{
-			return new LaravelTwigViewEngine();
+			return new Engines\LaravelTwigViewEngine($this->app);
 		});
 	}
 
