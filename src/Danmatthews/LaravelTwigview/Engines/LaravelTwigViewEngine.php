@@ -27,6 +27,14 @@ class LaravelTwigViewEngine implements \Illuminate\View\Engines\EngineInterface
     public function get($path, array $data = array())
     {
 
+        // Manage the transformation of errors into a handy array.
+        foreach ($data['errors']->getMessages() as $key => $errors) {
+            $twigErrors[$key] = new \Danmatthews\LaravelTwigView\LaravelTwigFieldErrorMessageBag($errors);
+        }
+
+        // No errors? Send the original errors variable so it's still defined.
+        $data['errors'] = isset($twigErrors) > 0 ? $twigErrors : $data['errors'];
+
         // Get the list of view paths from the app.
         $paths = $this->app['view']->getFinder()->getPaths();
 
