@@ -29,7 +29,7 @@ class LaravelTwigViewEngine implements \Illuminate\View\Engines\EngineInterface
 
         // Manage the transformation of errors into a handy array.
         foreach ($data['errors']->getMessages() as $key => $errors) {
-            $twigErrors[$key] = new \Danmatthews\LaravelTwigView\LaravelTwigFieldErrorMessageBag($errors);
+            $twigErrors[$key] = new \Danmatthews\LaravelTwigview\LaravelTwigFieldErrorMessageBag($errors);
         }
 
         // No errors? Send the original errors variable so it's still defined.
