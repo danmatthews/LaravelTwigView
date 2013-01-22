@@ -41,3 +41,35 @@ Then add this line to `app/config/app.php`, to the `providers` key:
 ```
 
 Then that should be it! Enjoy.
+
+## Validation errors
+
+Laravel does this great thing where it passes the `$errors` variable through to all views, all the time. It however assumes that you're using Blade syntax, so you can do things like:
+
+```
+{{ $errors->first('email') }}
+```
+
+But with twig, we can't call methods, so this packages translates the Laravel errors into something a little more useful, where `{{ errors }}` is still an array, but you can do things like:
+
+```twig
+{# Errors array - printing this directly will throw an exception #}
+{{ errors }}
+
+{# Get a list of the errors for the email field #}
+{% for error in errors.email %} {{ error }} {% endfor %}
+
+{# Get a list of all the errors returned, by field #}
+{% for error in errors %}
+ 
+  {# Print the first error for this field #}
+  {% for fieldError in error %}
+     {{ fieldError }} 
+  {% endfor %}
+  
+  {# Loop through all the errors for this field  
+ 
+
+{% endfor %}
+
+```
