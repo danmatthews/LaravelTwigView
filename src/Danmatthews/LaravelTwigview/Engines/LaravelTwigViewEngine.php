@@ -72,6 +72,19 @@ class LaravelTwigViewEngine implements \Illuminate\View\Engines\EngineInterface
 
         // Add the asset() function for templates.
         $twig->addFunction(new Twig_SimpleFunction('asset', 'URL::asset'));
+        
+        // Add laravel form helpers.
+        $twig->addFunction(new Twig_SimpleFunction('formOpen', "Form::open"));
+        $twig->addFunction(new Twig_SimpleFunction('formClose', "Form::close"));
+        $twig->addFunction(new Twig_SimpleFunction('formToken', "Form::token"));
+        $twig->addFunction(new Twig_SimpleFunction('formLabel', "Form::label"));
+        $twig->addFunction(new Twig_SimpleFunction('formText', "Form::text"));
+        $twig->addFunction(new Twig_SimpleFunction('formPassword', "Form::password"));
+        $twig->addFunction(new Twig_SimpleFunction('formCheckbox', "Form::checkbox"));
+        $twig->addFunction(new Twig_SimpleFunction('formRadio', "Form::radio"));
+        $twig->addFunction(new Twig_SimpleFunction('formFile', "Form::file"));
+        $twig->addFunction(new Twig_SimpleFunction('formSelect', "Form::select"));
+        $twig->addFunction(new Twig_SimpleFunction('formSubmit', "Form::submit"));
 
         // Render and return the file.
         return $twig->render($path, $data);
