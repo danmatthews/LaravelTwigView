@@ -5,18 +5,6 @@ Allows you to add [Twig](http://twig.sensiolabs.org) parsing to Laravel 4, i muc
 
 The package itself is really simple, it takes the template you provide, and parses it, simple!
 
-There's also two handy little helper functions in there:
-
-```twig
-// Get a URL to a route.
-{{ url('route/id') }}
-
-// Get the URL to an asset file.
-{{ asset('assets/style.css') }}
-```
-
-And that's it!
-
 ## Installation
 
 All you need to do to install it, is add the package to your composer.json file:
@@ -33,7 +21,7 @@ Then run:
 php composer.phar update
 ```
 
-Then add this line to `app/config/app.php`, to the `providers` key:
+Then add this line to `app/config/app.php`, to the `providers` list:
 
 ```php
 'providers' => array(
@@ -41,6 +29,36 @@ Then add this line to `app/config/app.php`, to the `providers` key:
 ```
 
 Then that should be it! Enjoy.
+
+## Helpers
+
+There's also two handy little helper functions in there:
+
+```twig
+// Get a URL to a route.
+{{ url('route/id') }}
+
+// Get the URL to an asset file.
+{{ asset('assets/style.css') }}
+```
+
+## Form Helpers:
+
+...And a few little form helpers:
+
+```twig
+{{ formOpen() }} {# Laravel Form::open() function #}
+{{ formClose() }} {# Laravel Form::close() function #}
+{{ formText() }} {# Laravel Form::text() function #}
+{{ formToken() }} {# Laravel Form::token() function #}
+{{ formLabel() }} {# Laravel Form::label() function #}
+{{ formPassword() }} {# Laravel Form::password() function #}
+{{ formFile) }} {# Laravel Form::file() function #}
+{{ formSelect() }} {# Laravel Form::select() function #}
+{{ formSubmit() }} {# Laravel Form::submit() function #}
+{{ formHidden() }} {# Laravel Form::hidden() function #}
+```
+
 
 ## Validation errors
 
@@ -61,14 +79,14 @@ But with twig, we can't call methods, so this packages translates the Laravel er
 
 {# Get a list of all the errors returned, by field #}
 {% for error in errors %}
- 
+
   {# Print the first error for this field #}
   {% for fieldError in error %}
-     {{ fieldError }} 
+     {{ fieldError }}
   {% endfor %}
-  
-  {# Loop through all the errors for this field  
- 
+
+  {# Loop through all the errors for this field
+
 
 {% endfor %}
 
