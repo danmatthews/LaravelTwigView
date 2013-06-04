@@ -3,7 +3,13 @@ LaravelTwig - View replacement for Laravel 4.
 
 Allows you to add [Twig](http://twig.sensiolabs.org) parsing to Laravel 4, i much prefer twig to blade for many reasons, and now you can use it too.
 
-The package itself is really simple, it takes the template you provide, and parses it, simple!
+The package provides:
+
+- Twig templates, in all their glory.
+- Automatic template caching.
+- `url()`, and `asset()` helper methods for quickly routing resources and links.
+- A full set of form helpers.
+- A `call()` method that allows you to call any Laravel 4 static method within a template (use it wisely!).
 
 ## Installation
 
@@ -30,7 +36,7 @@ Then add this line to `app/config/app.php`, to the `providers` list:
 
 Then that should be it! Enjoy.
 
-## Helpers
+## Quick Helpers
 
 There's also two handy little helper functions in there:
 
@@ -38,27 +44,53 @@ There's also two handy little helper functions in there:
 // Get a URL to a route.
 {{ url('route/id') }}
 
-// Get the URL to an asset file.
+// Get the URL to an asset file (works relative to the public directory).
 {{ asset('assets/style.css') }}
 ```
 
 ## Form Helpers:
 
-...And a few little form helpers:
+See the [Forms & HTML](http://laravel.com/docs/html) documentation on how these work.
 
 ```twig
+
 {{ formOpen() }} {# Laravel Form::open() function #}
+
 {{ formClose() }} {# Laravel Form::close() function #}
+
 {{ formText() }} {# Laravel Form::text() function #}
+
 {{ formToken() }} {# Laravel Form::token() function #}
+
 {{ formLabel() }} {# Laravel Form::label() function #}
+
 {{ formPassword() }} {# Laravel Form::password() function #}
+
 {{ formFile) }} {# Laravel Form::file() function #}
+
 {{ formSelect() }} {# Laravel Form::select() function #}
+
 {{ formSubmit() }} {# Laravel Form::submit() function #}
+
 {{ formHidden() }} {# Laravel Form::hidden() function #}
 ```
+## The `call()` function.
 
+This allows you to call any static method or any one of Laravel's Facade's through a template, and get the result returned. Use this with caution.
+
+The first argument passed to the `call()` function would be the classname and method name as a string, such as `URL::to` or `Form::hidden`.
+
+Any further arguments that are passed to the function are passed along to the method being called.
+
+```twig
+{# Call the Laravel Cache::has function to check for a value. #}
+
+{% if (call('Cache::has', 'my.key')) %}
+Put the cached values here.
+{% else %}
+Tell them that there's nothing stored.
+{% endif %}
+```
 
 ## Validation errors
 
