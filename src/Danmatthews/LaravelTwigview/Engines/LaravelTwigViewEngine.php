@@ -87,6 +87,26 @@ class LaravelTwigViewEngine implements \Illuminate\View\Engines\EngineInterface
         $twig->addFunction(new Twig_SimpleFunction('formSubmit', "Form::submit"));
         $twig->addFunction(new Twig_SimpleFunction('formHidden', "Form::hidden"));
 
+        /**
+         * New call() method that supports multiple arguments.
+         * This allows you to call laravel Static methods (and facades).
+         * Will only call methods where the scope resolution operator is present.
+         */
+        $function = new Twig_SimpleFunction('call', function ($function) {
+
+            $args = func_get_args();
+            $args = array_splice($args, 1);
+
+            $response = call_user_func_array($function, $args);
+
+            if ($response) {
+                return call_user_func_array($function, $args);
+            } else {
+                throw new \Danmatthews\LaravelTwigView\InvalidStaticMethodException;
+            }
+        });
+        $twig->addFunction($function);
+
         // Render and return the file.
         return $twig->render($path, $data);
     }
