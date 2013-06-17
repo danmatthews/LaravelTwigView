@@ -66,7 +66,7 @@ See the [Forms & HTML](http://laravel.com/docs/html) documentation on how these 
 
 {{ formPassword() }} {# Laravel Form::password() function #}
 
-{{ formFile) }} {# Laravel Form::file() function #}
+{{ formFile() }} {# Laravel Form::file() function #}
 
 {{ formSelect() }} {# Laravel Form::select() function #}
 
@@ -76,7 +76,7 @@ See the [Forms & HTML](http://laravel.com/docs/html) documentation on how these 
 ```
 ## The `call()` function.
 
-This allows you to call any static method or any one of Laravel's Facade's through a template, and get the result returned. Use this with caution.
+This allows you to call any static method or any one of Laravel's Facade's through a template, and get the result returned. <strong style="color:red;">Use this with caution!</strong>
 
 The first argument passed to the `call()` function would be the classname and method name as a string, such as `URL::to` or `Form::hidden`.
 
