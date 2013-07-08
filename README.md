@@ -5,7 +5,7 @@ Allows you to add [Twig](http://twig.sensiolabs.org) parsing to Laravel 4, i muc
 
 The package provides:
 
-- Twig templates, in all their glory.
+- Twig templates, in all their glory, including inheritance.
 - Automatic template caching.
 - `url()`, and `asset()` helper methods for quickly routing resources and links.
 - A full set of form helpers.
