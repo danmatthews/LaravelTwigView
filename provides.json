@@ -1,5 +1,3 @@
 {
-  "providers": [
-    "Danmatthews\LaravelTwigview\LaravelTwigviewServiceProvider"
-
+  "providers": ["Danmatthews\LaravelTwigview\LaravelTwigviewServiceProvider"]
 }
