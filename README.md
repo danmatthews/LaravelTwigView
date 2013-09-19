@@ -103,21 +103,26 @@ But with twig, we can't call methods, so this packages translates the Laravel er
 
 ```twig
 {# Errors array - printing this directly will throw an exception #}
+
 {{ errors }}
 
 {# Get a list of the errors for the email field #}
+
 {% for error in errors.email %} {{ error }} {% endfor %}
 
 {# Get a list of all the errors returned, by field #}
+
 {% for error in errors %}
 
   {# Print the first error for this field #}
+  
   {% for fieldError in error %}
+  
      {{ fieldError }}
+  
   {% endfor %}
 
-  {# Loop through all the errors for this field
-
+  {# Loop through all the errors for this field #}
 
 {% endfor %}
 
