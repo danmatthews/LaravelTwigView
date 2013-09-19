@@ -53,7 +53,6 @@ There's also two handy little helper functions in there:
 See the [Forms & HTML](http://laravel.com/docs/html) documentation on how these work.
 
 ```twig
-
 {{ formOpen() }} {# Laravel Form::open() function #}
 
 {{ formClose() }} {# Laravel Form::close() function #}
