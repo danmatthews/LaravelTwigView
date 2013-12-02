@@ -86,6 +86,8 @@ class LaravelTwigViewEngine implements \Illuminate\View\Engines\EngineInterface
         $twig->addFunction(new Twig_SimpleFunction('formSelect', "Form::select"));
         $twig->addFunction(new Twig_SimpleFunction('formSubmit', "Form::submit"));
         $twig->addFunction(new Twig_SimpleFunction('formHidden', "Form::hidden"));
+        $twig->addFunction(new Twig_SimpleFunction('formTextarea', "Form::textarea"));
+
 
         /**
          * New call() method that supports multiple arguments.
