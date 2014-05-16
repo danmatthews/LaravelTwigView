@@ -17,7 +17,9 @@ All you need to do to install it, is add the package to your composer.json file:
 
 ```json
 {
-	"require": "danmatthews/laraveltwigview"
+	"require": {
+		"danmatthews/laraveltwigview": "*"
+	}
 }
 ```
 
