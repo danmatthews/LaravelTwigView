@@ -33,7 +33,7 @@ class LaravelTwigViewEngine implements \Illuminate\View\Engines\EngineInterface
         }
 
         // No errors? Send the original errors variable so it's still defined.
-        $data['errors'] = isset($twigErrors) > 0 ? $twigErrors : $data['errors'];
+        $data['errors'] = isset($twigErrors) > 0 ? $twigErrors : array();
 
         // Get the list of view paths from the app.
         $paths = $this->app['view']->getFinder()->getPaths();
